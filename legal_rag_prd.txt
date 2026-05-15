@@ -1,0 +1,93 @@
+Legal RAG Contract Risk Analyzer
+Detailed Project Requirements Document (PRD)
+
+1. Project Overview
+Objective:
+Design and implement an AI-powered system that analyzes legal contracts and identifies risky clauses using Retrieval-Augmented Generation (RAG).
+
+Goal:
+Reduce manual contract review time while ensuring accurate, explainable, and scalable legal analysis.
+
+2. Problem Statement
+Manual contract analysis is time-consuming, error-prone, and requires domain expertise.
+Traditional methods:
+- Keyword search lacks semantic understanding
+- LLM-only approaches may hallucinate
+Solution:
+Combine semantic retrieval with LLM reasoning.
+
+3. Scope of Project
+In Scope:
+- Upload and process PDFs
+- Text extraction and chunking
+- Embedding generation and vector storage
+- Semantic search and LLM analysis
+- Web-based output display
+
+Out of Scope:
+- Legal certification
+- Multi-language support (initial phase)
+
+4. Functional Requirements
+- Upload contract (PDF)
+- Extract text using PyPDF/pdfplumber
+- Chunk text using LangChain
+- Generate embeddings using Sentence Transformers
+- Store vectors in ChromaDB/FAISS
+- Accept user queries
+- Retrieve relevant chunks
+- Analyze using LLM
+- Display risk results with explanation and citation
+
+5. Non-Functional Requirements
+- Response time < 3 seconds
+- Scalable to 100+ documents
+- Reliable and consistent output
+- Secure document handling
+
+6. Technology Stack
+- Python
+- LangChain / LlamaIndex
+- Sentence Transformers
+- ChromaDB / FAISS
+- Llama / Mistral / GPT
+- FastAPI
+- Streamlit / Gradio
+
+7. Workflow
+1. Upload contract
+2. Extract text
+3. Chunk text
+4. Generate embeddings
+5. Store in vector DB
+6. User query
+7. Retrieve relevant chunks
+8. LLM reasoning
+9. Display output
+
+8. Evaluation Metrics
+- Precision@K
+- Recall@K
+- Response latency
+- Faithfulness of output
+
+9. Risks and Mitigation
+- Poor text extraction → use reliable libraries
+- Hallucination → use RAG + citations
+- Large documents → chunking
+
+10. Deliverables
+- Working system
+- API
+- Web UI
+- GitHub repo
+- Demo deployment
+
+11. Timeline (4 Weeks)
+Week 1: Data + preprocessing
+Week 2: Embeddings + DB
+Week 3: LLM + API
+Week 4: UI + testing
+
+12. Conclusion
+This project demonstrates deep learning, retrieval systems, LLM integration, and real-world AI application in legal technology.

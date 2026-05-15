@@ -1,0 +1,17 @@
+# Environments
+venv/
+env/
+__pycache__/
+
+# OS files
+.DS_Store
+
+# Large model files / Data
+*.safetensors
+*.bin
+*.h5
+uploads/
+vector_store/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/

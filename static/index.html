@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AI-powered legal contract risk analyzer using RAG — upload PDFs and get instant risk analysis with citations." />
+  <title>Legal RAG — Contract Risk Analyzer</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>" />
+</head>
+<body>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="app-container">
+
+    <!-- ===== Sidebar — Document Panel ===== -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <div class="logo-icon">⚖️</div>
+          <h1>Legal RAG</h1>
+        </div>
+        <p class="logo-subtitle">Contract Risk Analyzer</p>
+      </div>
+
+      <!-- Upload Zone -->
+      <div class="upload-section">
+        <div class="upload-zone" id="uploadZone">
+          <span class="upload-icon">📄</span>
+          <div class="upload-text">
+            <strong>Drop your contract PDF here</strong>
+            <br />or click to browse
+            <small>Supports PDF files up to 50MB</small>
+          </div>
+          <input type="file" class="upload-input" id="fileInput" accept=".pdf" />
+        </div>
+
+        <div class="upload-progress" id="uploadProgress">
+          <div class="progress-text" id="progressText">Processing document…</div>
+          <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Document List -->
+      <div class="documents-section">
+        <div class="section-label">Your Documents</div>
+        <div class="doc-list" id="docList">
+          <div class="empty-state" id="emptyState">
+            <div class="empty-state-icon">📂</div>
+            <div class="empty-state-text">
+              No documents yet.<br />Upload a contract PDF to get started.
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ===== Main Content — Chat ===== -->
+    <main class="main-content">
+
+      <!-- Chat Header -->
+      <div class="chat-header">
+        <div class="chat-header-info">
+          <div class="chat-header-dot"></div>
+          <div>
+            <div class="chat-header-title" id="chatHeaderTitle">AI Risk Analyst</div>
+            <div class="chat-header-status" id="chatHeaderStatus">Ready — upload a document to begin</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Messages -->
+      <div class="chat-messages" id="chatMessages">
+        <!-- Welcome Screen -->
+        <div class="welcome-screen" id="welcomeScreen">
+          <div class="welcome-icon">🔍</div>
+          <h2 class="welcome-title">Contract Risk Analyzer</h2>
+          <p class="welcome-subtitle">
+            Upload a legal contract PDF and ask questions about risky clauses,
+            termination terms, liability, or any legal provisions. Get AI-powered
+            analysis with cited references.
+          </p>
+          <div class="welcome-suggestions" id="suggestionsGrid">
+            <div class="suggestion-card" data-query="What are the key risk factors in this contract?">
+              <span class="suggestion-emoji">⚠️</span>
+              Identify key risk factors and concerning clauses
+            </div>
+            <div class="suggestion-card" data-query="Analyze the termination and exit clauses">
+              <span class="suggestion-emoji">🚪</span>
+              Analyze termination and exit conditions
+            </div>
+            <div class="suggestion-card" data-query="What are the liability and indemnification terms?">
+              <span class="suggestion-emoji">🛡️</span>
+              Review liability and indemnification terms
+            </div>
+            <div class="suggestion-card" data-query="Summarize the payment and penalty clauses">
+              <span class="suggestion-emoji">💰</span>
+              Summarize payment and penalty structures
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input -->
+      <div class="chat-input-container">
+        <div class="chat-input-wrapper">
+          <input
+            type="text"
+            class="chat-input"
+            id="chatInput"
+            placeholder="Ask about contract risks, clauses, terms…"
+            disabled
+          />
+          <button class="send-btn" id="sendBtn" disabled title="Send query">
+            ➤
+          </button>
+        </div>
+        <div class="input-hint" id="inputHint">Upload a document first to start querying</div>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
